@@ -43,6 +43,24 @@ def parse_results(path: str) -> list[dict]:
     return results
 
 
+def get_resume_state(path: str, direction: str) -> tuple[int, float | None]:
+    """Parse results.tsv to find last iteration index and best metric value.
+
+    Returns (last_iteration, best_value). If no results, returns (-1, None).
+    """
+    results = parse_results(path)
+    if not results:
+        return -1, None
+
+    last_iter = len(results) - 1
+    values = [r["metric_value"] for r in results]
+    if direction == "max":
+        best_val = max(values)
+    else:
+        best_val = min(values)
+    return last_iter, best_val
+
+
 def format_results_table(results: list[dict]) -> str:
     """Format results as a readable table string."""
     if not results:
