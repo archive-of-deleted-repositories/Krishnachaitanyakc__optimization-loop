@@ -1,4 +1,4 @@
-"""Click CLI for autoresearch-anything."""
+"""Click CLI for optimization-loop."""
 
 import os
 import click
@@ -11,7 +11,7 @@ from .loop import run_optimization_loop
 
 @click.group()
 def cli():
-    """autoresearch-anything: Optimize any quantifiable task."""
+    """optimization-loop: Optimize any quantifiable task."""
     pass
 
 
