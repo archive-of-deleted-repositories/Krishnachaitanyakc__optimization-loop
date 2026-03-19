@@ -7,6 +7,24 @@ import subprocess
 import sys
 
 
+def extract_metrics(output: str) -> dict[str, float]:
+    """Extract all METRIC values from script output.
+
+    Supports both 'METRIC: value' and 'METRIC name: value' patterns.
+    For duplicate names, the last value wins.
+    """
+    result = {}
+    # Named metrics: METRIC name: value
+    for name, val in re.findall(
+        r"^METRIC\s+(\w+):\s*([+-]?\d+(?:\.\d+)?)", output, re.MULTILINE
+    ):
+        result[name] = float(val)
+    # Default metrics: METRIC: value (no name)
+    for val in re.findall(r"^METRIC:\s*([+-]?\d+(?:\.\d+)?)", output, re.MULTILINE):
+        result["metric"] = float(val)
+    return result
+
+
 def extract_metric(output: str) -> float | None:
     """Extract the last METRIC value from script output."""
     matches = re.findall(r"^METRIC:\s*([+-]?\d+(?:\.\d+)?)", output, re.MULTILINE)

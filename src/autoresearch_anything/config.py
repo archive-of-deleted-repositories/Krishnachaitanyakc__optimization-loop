@@ -51,4 +51,14 @@ def validate_config(data: dict) -> dict:
             f"time_budget_seconds must be a positive number, got {data['time_budget_seconds']}"
         )
 
+    # Validate optional metrics list
+    if "metrics" in data and data["metrics"] is not None:
+        if not isinstance(data["metrics"], list):
+            raise ConfigError("metrics must be a list")
+        for m in data["metrics"]:
+            if "name" not in m:
+                raise ConfigError("Each metric must have a 'name'")
+            if m.get("direction", "max") not in ("min", "max"):
+                raise ConfigError(f"Invalid direction for metric '{m['name']}'")
+
     return data
