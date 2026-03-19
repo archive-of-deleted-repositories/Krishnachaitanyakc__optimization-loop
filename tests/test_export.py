@@ -2,8 +2,8 @@ import os
 import json
 import csv
 import pytest
-from autoresearch_anything.export import export_results
-from autoresearch_anything.results import write_result
+from optimization_loop.export import export_results
+from optimization_loop.results import write_result
 
 
 class TestExportResults:

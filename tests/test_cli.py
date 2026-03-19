@@ -1,7 +1,7 @@
 import os
 import pytest
 from click.testing import CliRunner
-from autoresearch_anything.cli import cli
+from optimization_loop.cli import cli
 
 
 class TestInitCommand:

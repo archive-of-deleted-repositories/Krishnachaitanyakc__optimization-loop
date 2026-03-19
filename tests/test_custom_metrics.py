@@ -1,6 +1,6 @@
 import os
 import pytest
-from autoresearch_anything.loop import extract_metrics, extract_metric
+from optimization_loop.loop import extract_metrics, extract_metric
 
 
 class TestExtractMetrics:
@@ -47,7 +47,7 @@ class TestExtractMetrics:
 
 class TestCustomMetricsConfig:
     def test_config_with_metrics_list(self):
-        from autoresearch_anything.config import validate_config
+        from optimization_loop.config import validate_config
         data = {
             "name": "test",
             "metric_name": "accuracy",
@@ -65,7 +65,7 @@ class TestCustomMetricsConfig:
         assert len(config["metrics"]) == 2
 
     def test_config_without_metrics_list_still_works(self):
-        from autoresearch_anything.config import validate_config
+        from optimization_loop.config import validate_config
         data = {
             "name": "test",
             "metric_name": "accuracy",

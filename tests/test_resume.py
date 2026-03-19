@@ -1,6 +1,6 @@
 import os
 import pytest
-from autoresearch_anything.results import parse_results, write_result, get_resume_state
+from optimization_loop.results import parse_results, write_result, get_resume_state
 
 
 class TestGetResumeState:

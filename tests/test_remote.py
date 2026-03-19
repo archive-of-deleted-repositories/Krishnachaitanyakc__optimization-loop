@@ -1,7 +1,7 @@
 import os
 import pytest
 from unittest.mock import patch, MagicMock
-from autoresearch_anything.remote import (
+from optimization_loop.remote import (
     LocalExecutor,
     SSHExecutor,
     DockerExecutor,
@@ -30,7 +30,7 @@ class TestLocalExecutor:
 
 
 class TestSSHExecutor:
-    @patch("autoresearch_anything.remote._run_ssh")
+    @patch("optimization_loop.remote._run_ssh")
     def test_ssh_run(self, mock_ssh):
         mock_ssh.return_value = "METRIC: 0.95\n"
         executor = SSHExecutor(host="remote.example.com", user="testuser")
@@ -45,7 +45,7 @@ class TestSSHExecutor:
 
 
 class TestDockerExecutor:
-    @patch("autoresearch_anything.remote._run_docker")
+    @patch("optimization_loop.remote._run_docker")
     def test_docker_run(self, mock_docker):
         mock_docker.return_value = "METRIC: 0.85\n"
         executor = DockerExecutor(image="python:3.11")

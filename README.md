@@ -1,10 +1,10 @@
-# autoresearch-anything
+# optimization-loop
 
 Generalize the autoresearch optimization loop to ANY quantifiable optimization task.
 
 ## Overview
 
-autoresearch-anything provides a pluggable optimization loop that works with any task that has a quantifiable metric. Define a prepare script, a train script, and a program file, then let the loop modify, run, evaluate, and keep or discard changes based on your metric.
+optimization-loop provides a pluggable optimization loop that works with any task that has a quantifiable metric. Define a prepare script, a train script, and a program file, then let the loop modify, run, evaluate, and keep or discard changes based on your metric.
 
 ## Installation
 
@@ -17,7 +17,7 @@ pip install -e .
 ### Initialize a new project from a template
 
 ```bash
-autoresearch-anything init my-project --template web_perf
+optimization-loop init my-project --template web_perf
 ```
 
 Available templates: `web_perf`, `db_query`, `compiler`, `code_quality`
@@ -26,14 +26,14 @@ Available templates: `web_perf`, `db_query`, `compiler`, `code_quality`
 
 ```bash
 cd my-project
-autoresearch-anything run
+optimization-loop run
 ```
 
 ### View results
 
 ```bash
-autoresearch-anything results
-autoresearch-anything status
+optimization-loop results
+optimization-loop status
 ```
 
 ## Configuration

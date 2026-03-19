@@ -1,7 +1,7 @@
 import os
 import pytest
-from autoresearch_anything.results import write_result
-from autoresearch_anything.visualization import generate_plot
+from optimization_loop.results import write_result
+from optimization_loop.visualization import generate_plot
 
 
 class TestGeneratePlot:

@@ -1,6 +1,6 @@
 import os
 import pytest
-from autoresearch_anything.sweep import run_sweep, build_sweep_grid
+from optimization_loop.sweep import run_sweep, build_sweep_grid
 
 
 class TestBuildSweepGrid:

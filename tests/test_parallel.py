@@ -1,8 +1,8 @@
 import os
 import pytest
 from unittest.mock import patch, MagicMock
-from autoresearch_anything.parallel import run_parallel_iterations
-from autoresearch_anything.results import write_result, parse_results
+from optimization_loop.parallel import run_parallel_iterations
+from optimization_loop.results import write_result, parse_results
 
 
 class TestRunParallelIterations:

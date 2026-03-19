@@ -1,6 +1,6 @@
 import os
 import pytest
-from autoresearch_anything.templates import (
+from optimization_loop.templates import (
     get_template,
     list_templates,
     generate_project,

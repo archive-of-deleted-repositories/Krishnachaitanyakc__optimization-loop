@@ -1,6 +1,6 @@
 import os
 import pytest
-from autoresearch_anything.results import write_result, parse_results, format_results_table
+from optimization_loop.results import write_result, parse_results, format_results_table
 
 
 class TestWriteResult:

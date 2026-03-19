@@ -2,7 +2,7 @@ import os
 import tempfile
 import pytest
 import yaml
-from autoresearch_anything.config import load_config, validate_config, ConfigError
+from optimization_loop.config import load_config, validate_config, ConfigError
 
 
 def _write_config(tmp_path, data):

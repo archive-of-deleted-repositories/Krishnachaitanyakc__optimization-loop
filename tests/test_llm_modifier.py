@@ -1,7 +1,7 @@
 import os
 import pytest
 from unittest.mock import patch, MagicMock
-from autoresearch_anything.llm_modifier import build_prompt, modify_train_script
+from optimization_loop.llm_modifier import build_prompt, modify_train_script
 
 
 class TestBuildPrompt:
@@ -37,7 +37,7 @@ class TestBuildPrompt:
 
 
 class TestModifyTrainScript:
-    @patch("autoresearch_anything.llm_modifier._call_llm")
+    @patch("optimization_loop.llm_modifier._call_llm")
     def test_modify_returns_new_code(self, mock_llm, tmp_path):
         mock_llm.return_value = 'print("METRIC: 0.9")\n'
 
@@ -52,7 +52,7 @@ class TestModifyTrainScript:
         new_code = modify_train_script(train_path, program_path, [], api_key="test-key")
         assert "0.9" in new_code
 
-    @patch("autoresearch_anything.llm_modifier._call_llm")
+    @patch("optimization_loop.llm_modifier._call_llm")
     def test_modify_writes_file(self, mock_llm, tmp_path):
         mock_llm.return_value = 'print("METRIC: 0.9")\n'
 

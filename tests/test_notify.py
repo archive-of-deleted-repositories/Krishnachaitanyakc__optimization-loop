@@ -1,7 +1,7 @@
 import os
 import pytest
 from unittest.mock import patch, MagicMock
-from autoresearch_anything.autoresearch_notify import (
+from optimization_loop.autoresearch_notify import (
     NotifyConfig,
     load_notify_config,
     send_notification,
@@ -33,13 +33,13 @@ class TestNotifyConfig:
 
 
 class TestSendNotification:
-    @patch("autoresearch_anything.autoresearch_notify._send_webhook")
+    @patch("optimization_loop.autoresearch_notify._send_webhook")
     def test_webhook_notification(self, mock_webhook):
         config = NotifyConfig(webhook_url="https://hooks.example.com/notify")
         send_notification(config, "Test Subject", "Test body")
         mock_webhook.assert_called_once()
 
-    @patch("autoresearch_anything.autoresearch_notify._send_email")
+    @patch("optimization_loop.autoresearch_notify._send_email")
     def test_email_notification(self, mock_email):
         config = NotifyConfig(
             smtp_host="smtp.example.com",
@@ -58,7 +58,7 @@ class TestSendNotification:
 
 
 class TestNotifyImprovement:
-    @patch("autoresearch_anything.autoresearch_notify.send_notification")
+    @patch("optimization_loop.autoresearch_notify.send_notification")
     def test_notify_on_improvement(self, mock_send):
         config = NotifyConfig(webhook_url="https://hooks.example.com")
         notify_improvement(config, "accuracy", 0.95, 0.90)

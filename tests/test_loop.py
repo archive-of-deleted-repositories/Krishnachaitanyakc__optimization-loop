@@ -1,7 +1,7 @@
 import os
 import subprocess
 import pytest
-from autoresearch_anything.loop import extract_metric, is_improvement, run_script
+from optimization_loop.loop import extract_metric, is_improvement, run_script
 
 
 class TestExtractMetric:

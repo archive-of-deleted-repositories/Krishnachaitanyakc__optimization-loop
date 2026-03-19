@@ -1,6 +1,6 @@
 import os
 import pytest
-from autoresearch_anything.plugins import (
+from optimization_loop.plugins import (
     MetricExtractor,
     TemplateProvider,
     load_plugins_from_dir,
@@ -51,7 +51,7 @@ class TestLoadPluginsFromDir:
         plugin_file = os.path.join(plugin_dir, "my_plugin.py")
         with open(plugin_file, "w") as f:
             f.write(
-                'from autoresearch_anything.plugins import MetricExtractor\n'
+                'from optimization_loop.plugins import MetricExtractor\n'
                 'class TestExtractor(MetricExtractor):\n'
                 '    name = "test_ext"\n'
                 '    def extract(self, output):\n'
